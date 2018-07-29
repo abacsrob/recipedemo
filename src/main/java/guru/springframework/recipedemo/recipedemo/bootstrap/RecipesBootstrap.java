@@ -43,16 +43,16 @@ public class RecipesBootstrap implements ApplicationListener<ContextRefreshedEve
         r1.setDifficulty(Difficulty.EASY);
         r1.setDirections("1 Marinate the chicken: In a medium bowl, whisk together the olive oil, lemon zest, garlic, salt, and pepper. Add the chicken and toss to coat. Marinate in the refrigerator, covered, for at least 20 minutes and up to 24 hours. 2 Brush the bread with oil: Combine the olive oil, garlic, salt, and pepper to a small bowl. Use a pastry brush to coat each side of the bread. Set aside on a tray. 3 Heat your grill: Preheat your grill to high heat to around 500°F with two zones for direct and indirect grilling. 4 Grill the bread: Grill the slices of bread over direct high heat for 2 minutes on each side. Remove from the grill and set aside while grilling the chicken. 5 Grill the chicken: Grill the chicken for 5 minutes on one side without disturbing, then flip and move the chicken to the cooler side of the grill. Cook 3 to 5 minutes or until internal temperature reaches 165ºF. 6 Finish the salad: Tear the romaine hearts into bite sized pieces and toss with the dressing in a large bowl. Divide the greens between plates and top with the grilled chicken, shaved Parmesan, grilled croutons. Finish with freshly cracked black pepper.");
 
-        r1.getIngredients().add(new Ingredient("Lemon", BigDecimal.ONE, uomPiece.get()));
-        r1.getIngredients().add(new Ingredient("Garlic", new BigDecimal("3"), uomPiece.get()));
-        r1.getIngredients().add(new Ingredient("Salt", BigDecimal.ONE, uomTeaspoon.get()));
-        r1.getIngredients().add(new Ingredient("Fresh ground black pepper", BigDecimal.ONE, uomTeaspoon.get()));
-        r1.getIngredients().add(new Ingredient("Boneless skinless chicken thighs", BigDecimal.ONE, uomPound.get()));
-        r1.getIngredients().add(new Ingredient("Olive oil", new BigDecimal("2"), uomTablespoon.get()));
-        r1.getIngredients().add(new Ingredient("Loaf of crusty baguette", BigDecimal.ONE, uomPiece.get()));
-        r1.getIngredients().add(new Ingredient("Romaine lettuce hearts", new BigDecimal("4"), uomPiece.get()));
-        r1.getIngredients().add(new Ingredient("Parmesan cheese", new BigDecimal("2"), uomOunce.get()));
-        r1.getIngredients().add(new Ingredient("Caesar dressing", new BigDecimal("2"), uomOunce.get()));
+        r1.getIngredients().add(new Ingredient("Lemon", BigDecimal.ONE, r1, uomPiece.get()));
+        r1.getIngredients().add(new Ingredient("Garlic", new BigDecimal("3"), r1, uomPiece.get()));
+        r1.getIngredients().add(new Ingredient("Salt", BigDecimal.ONE, r1, uomTeaspoon.get()));
+        r1.getIngredients().add(new Ingredient("Fresh ground black pepper", BigDecimal.ONE, r1, uomTeaspoon.get()));
+        r1.getIngredients().add(new Ingredient("Boneless skinless chicken thighs", BigDecimal.ONE, r1, uomPound.get()));
+        r1.getIngredients().add(new Ingredient("Olive oil", new BigDecimal("2"), r1, uomTablespoon.get()));
+        r1.getIngredients().add(new Ingredient("Loaf of crusty baguette", BigDecimal.ONE, r1, uomPiece.get()));
+        r1.getIngredients().add(new Ingredient("Romaine lettuce hearts", new BigDecimal("4"), r1, uomPiece.get()));
+        r1.getIngredients().add(new Ingredient("Parmesan cheese", new BigDecimal("2"), r1, uomOunce.get()));
+        r1.getIngredients().add(new Ingredient("Caesar dressing", new BigDecimal("2"), r1, uomOunce.get()));
 
         r1.getCategories().add(catChicken.get());
         r1.getCategories().add(catSalad.get());
@@ -70,17 +70,17 @@ public class RecipesBootstrap implements ApplicationListener<ContextRefreshedEve
         r2.setDifficulty(Difficulty.MODERATE);
         r2.setDirections("1 Divide and rest the dough: Divide the dough in half and gently shape into two balls. Gently coat each with olive oil and allow the dough to come to room temperature for about an hour, either in a large bowl or on the counter covered with a dishtowel. 2 Prep the toppings: Heat 1 tablespoon olive oil in a large skillet with a lid over medium heat.  Add the onions and peppers, season with salt and pepper, and sauté for 6 minutes, until tender and lightly browned. Add the chopped broccoli and sauté for another minute. Add 2 tablespoons water, and cover the pan with a lid. Cook for 1 minute, then remove the lid, and sauté for another minute or two until the broccoli is just tender and the water has evaporated. Stir in the olives and transfer the vegetables to a plate. 3 Shape the pizza rounds: Sprinkle a lightly oiled baking sheet with cornmeal or flour. Use two baking sheets if you want more space or are making multiple pizzas. Gently begin to stretch or roll each ball into a 12-inch circle, or a rectangle shape. You will need to stretch or roll it a bit, give it a few minutes to relax, and then continue to stretch it so that it doesn’t keep springing back into a smaller shape, which is easier to do when your dough is at room temperature. The goal is about to get it about 1/4 inch thick (it will puff up on the grill). Give it one final stretch and don’t worry if it’s unevenly shaped. 4 Heat the grill and gather your toppings: Heat a gas or charcoal grill to medium heat. Put your sauce in a small bowl, and bring that along with a brush, grill tongs, a grill spatula, the cheese, the dough, and the vegetables out to the grill. 5 Grill the dough on the first side: Brush the top of the shaped pizza rounds with olive oil, and with a swift motion, pick up one round of the dough by one edge and flip it, oiled-side down, onto the grill. Repeat with the other round of dough. Close the lid and don’t open it for 2 minutes, so the dough can rise a bit and firm up. Open the lid, peek underneath the dough using tongs, and check to see that it’s firm on the bottom (no wet dough), lifts easily, and has some light grill marks. Lightly brush the unbaked tops of the crusts with olive oil, and then flip them over to the other side. 6 Immediately add the sauce and toppings: Carefully brush the surface of each crust with the sauce. Sprinkle the cheese evenly over the tops followed by the toppings. Close the lid and cook for 4 minutes. Lift the lid and check the pizzas: the cheese should be completely melted and the crust should have a nicely browned underside and barely bend when you lift it with tongs. 7  Serve the pizzas: Remove the pizza from the grill with a large spatula, sprinkle with the fresh basil if using Let it sit for 1 to 2 minutes for the cheese to firm up slightly before cutting it into pieces.");
 
-        r2.getIngredients().add(new Ingredient("Pizza dough", BigDecimal.ONE, uomPound.get()));
-        r2.getIngredients().add(new Ingredient("Olive oil", new BigDecimal("1.5"), uomTablespoon.get()));
-        r2.getIngredients().add(new Ingredient("Red onion", new BigDecimal("4"), uomPiece.get()));
-        r2.getIngredients().add(new Ingredient("Fresh ground black pepper", new BigDecimal("2"), uomTeaspoon.get()));
-        r2.getIngredients().add(new Ingredient("Salt", BigDecimal.ONE, uomTeaspoon.get()));
-        r2.getIngredients().add(new Ingredient("Chopped broccoli", new BigDecimal("4"), uomPiece.get()));
-        r2.getIngredients().add(new Ingredient("Black olive", new BigDecimal("0.25"), uomPound.get()));
-        r2.getIngredients().add(new Ingredient("Flour or cornmeal", new BigDecimal("4"), uomTablespoon.get()));
-        r2.getIngredients().add(new Ingredient("Tomato sauce", new BigDecimal("5"), uomOunce.get()));
-        r2.getIngredients().add(new Ingredient("Shredded mozarella cheese", new BigDecimal("8"), uomOunce.get()));
-        r2.getIngredients().add(new Ingredient("Slivered fresh basil leaves", BigDecimal.ONE, uomOunce.get()));
+        r2.getIngredients().add(new Ingredient("Pizza dough", BigDecimal.ONE, r2, uomPound.get()));
+        r2.getIngredients().add(new Ingredient("Olive oil", new BigDecimal("1.5"), r2, uomTablespoon.get()));
+        r2.getIngredients().add(new Ingredient("Red onion", new BigDecimal("4"), r2, uomPiece.get()));
+        r2.getIngredients().add(new Ingredient("Fresh ground black pepper", new BigDecimal("2"), r2, uomTeaspoon.get()));
+        r2.getIngredients().add(new Ingredient("Salt", BigDecimal.ONE, r2, uomTeaspoon.get()));
+        r2.getIngredients().add(new Ingredient("Chopped broccoli", new BigDecimal("4"), r2, uomPiece.get()));
+        r2.getIngredients().add(new Ingredient("Black olive", new BigDecimal("0.25"), r2, uomPound.get()));
+        r2.getIngredients().add(new Ingredient("Flour or cornmeal", new BigDecimal("4"), r2, uomTablespoon.get()));
+        r2.getIngredients().add(new Ingredient("Tomato sauce", new BigDecimal("5"), r2, uomOunce.get()));
+        r2.getIngredients().add(new Ingredient("Shredded mozarella cheese", new BigDecimal("8"), r2, uomOunce.get()));
+        r2.getIngredients().add(new Ingredient("Slivered fresh basil leaves", BigDecimal.ONE, r2, uomOunce.get()));
 
 
         r2.getCategories().add(catPizza.get());

@@ -6,6 +6,27 @@
 </head>
 <body>
 <h1>Welcome to the Recipe Demo web application!</h1>
-
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Description</th>
+        <th>Difficulty</th>
+        <th>URL</th>
+        <th>Directions</th>
+        <th>Prep time (min)</th>
+        <th>Cook time (min)</th>
+        <th>Number of servings</th>
+    </tr>
+    <tr th:each="recipe : ${recipes}">
+        <td th:text="${recipe.id}">recipe id</td>
+        <td th:text="${recipe.description}">recipe description</td>
+        <td th:text="${recipe.difficulty}">recipe difficulty</td>
+        <td th:text="${recipe.url}">recipe url</td>
+        <td th:text="${recipe.directions}">recipe directions</td>
+        <td th:text="${recipe.prepTime}">recipe preptime</td>
+        <td th:text="${recipe.cookTime}">recipe cooktime</td>
+        <td th:text="${recipe.servings}">recipe servings</td>
+    </tr>
+</table>
 </body>
 </html>

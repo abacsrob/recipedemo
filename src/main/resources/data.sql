@@ -1,0 +1,11 @@
+INSERT INTO category (name) VALUES ('Chicken');
+INSERT INTO category (name) VALUES ('Salad');
+INSERT INTO category (name) VALUES ('Pizza');
+INSERT INTO category (name) VALUES ('Vegan');
+INSERT INTO unit_of_measure (name) VALUES ('Pound');
+INSERT INTO unit_of_measure (name) VALUES ('Ounce');
+INSERT INTO unit_of_measure (name) VALUES ('Bell');
+INSERT INTO unit_of_measure (name) VALUES ('Piece');
+INSERT INTO unit_of_measure (name) VALUES ('Teaspoon');
+INSERT INTO unit_of_measure (name) VALUES ('Tablespoon');
+INSERT INTO unit_of_measure (name) VALUES ('Loaf');

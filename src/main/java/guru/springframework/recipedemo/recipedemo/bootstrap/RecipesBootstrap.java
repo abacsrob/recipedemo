@@ -1,16 +1,20 @@
 package guru.springframework.recipedemo.recipedemo.bootstrap;
 
 import guru.springframework.recipedemo.recipedemo.domain.*;
-import guru.springframework.recipedemo.recipedemo.repositories.*;
+import guru.springframework.recipedemo.recipedemo.repositories.CategoryRepository;
+import guru.springframework.recipedemo.recipedemo.repositories.RecipeRepository;
+import guru.springframework.recipedemo.recipedemo.repositories.UnitOfMeasureRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
+@Slf4j
 @Component
 public class RecipesBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -25,7 +29,9 @@ public class RecipesBootstrap implements ApplicationListener<ContextRefreshedEve
     }
 
     @Override
+    @Transactional
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+        log.debug("Recipe bootstrapper: initializing recipes");
         rRepo.saveAll(initRecipes());
     }
 

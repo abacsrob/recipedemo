@@ -18,9 +18,8 @@ public class Note {
     public Note() {
     }
 
-    public Note(String notes, Recipe recipe) {
+    public Note(String notes) {
         this.notes = notes;
-        this.recipe = recipe;
     }
 
     public Long getId() {

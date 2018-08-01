@@ -52,6 +52,7 @@ public class RecipesBootstrap implements ApplicationListener<ContextRefreshedEve
         r1.setDescription("Grilled Chicken Caesar Salad");
         r1.setPrepTime(10);
         r1.setCookTime(15);
+        r1.setSource(5);
         r1.setServings(4);
         r1.setUrl("https://www.simplyrecipes.com/recipes/grilled_chicken_caesar_salad/");
         r1.setDifficulty(Difficulty.EASY);
@@ -79,6 +80,7 @@ public class RecipesBootstrap implements ApplicationListener<ContextRefreshedEve
         r2.setDescription("Grilled Pizza with Red Peppers, Broccoli, and Onions");
         r2.setPrepTime(20);
         r2.setCookTime(15);
+        r2.setSource(5);
         r2.setServings(2);
         r2.setUrl("https://www.simplyrecipes.com/recipes/grilled_pizza_with_red_peppers_broccoli_and_onions/");
         r2.setDifficulty(Difficulty.MODERATE);

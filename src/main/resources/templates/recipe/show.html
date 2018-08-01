@@ -41,7 +41,7 @@
                             Recipe preparation time:
                         </div>
                         <div class="col-md-9">
-                            <span th:text="${recipe.prepTime}">prepTime</span>
+                            <span th:text="@{${recipe.prepTime} + ' Min'}">prepTime</span>
                         </div>
                     </div>
                     <div class="row">
@@ -49,7 +49,15 @@
                             Recipe cooking time:
                         </div>
                         <div class="col-md-9">
-                            <span th:text="${recipe.cookTime}">cookTime</span>
+                            <span th:text="@{${recipe.cookTime} + ' Min'}">cookTime</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            Source:
+                        </div>
+                        <div class="col-md-9">
+                            <span th:text="@{${recipe.source} + ' Min'}">source</span>
                         </div>
                     </div>
                     <div class="row">

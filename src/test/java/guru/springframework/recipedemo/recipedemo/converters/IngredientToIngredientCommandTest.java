@@ -11,21 +11,21 @@ import static org.junit.Assert.*;
 
 public class IngredientToIngredientCommandTest {
 
-    IngredientToIngredientCommand ingredientToIngredientCommand;
+    IngredientToIngredientCommand ingredientConverter;
 
     @Before
     public void setUp() throws Exception {
-        ingredientToIngredientCommand = new IngredientToIngredientCommand();
+        ingredientConverter = new IngredientToIngredientCommand(new UnitOfMeasureToUnitOfMeasureCommand());
     }
 
     @Test
     public void testNull() {
-        assertNull(ingredientToIngredientCommand.convert(null));
+        assertNull(ingredientConverter.convert(null));
     }
 
     @Test
     public void testNotNull() {
-        assertNotNull(ingredientToIngredientCommand.convert(new Ingredient()));
+        assertNotNull(ingredientConverter.convert(new Ingredient()));
     }
 
     @Test
@@ -39,7 +39,7 @@ public class IngredientToIngredientCommandTest {
         ingredient.setDescription(description);
         ingredient.setAmount(amount);
 
-        IngredientCommand ingredientCommand = ingredientToIngredientCommand.convert(ingredient);
+        IngredientCommand ingredientCommand = ingredientConverter.convert(ingredient);
         assertNotNull(ingredientCommand);
         assertEquals(ingredientCommand.getId(), id);
         assertEquals(ingredientCommand.getDescription(), description);

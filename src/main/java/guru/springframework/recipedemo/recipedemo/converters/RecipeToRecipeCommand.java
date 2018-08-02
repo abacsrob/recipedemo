@@ -1,21 +1,24 @@
 package guru.springframework.recipedemo.recipedemo.converters;
 
-import guru.springframework.recipedemo.recipedemo.commands.CategoryCommand;
-import guru.springframework.recipedemo.recipedemo.commands.IngredientCommand;
 import guru.springframework.recipedemo.recipedemo.commands.RecipeCommand;
-import guru.springframework.recipedemo.recipedemo.domain.Category;
-import guru.springframework.recipedemo.recipedemo.domain.Ingredient;
 import guru.springframework.recipedemo.recipedemo.domain.Recipe;
 import lombok.Synchronized;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Component
 public class RecipeToRecipeCommand implements Converter<Recipe, RecipeCommand> {
+    private NoteToNoteCommand noteConverter;
+    private IngredientToIngredientCommand ingredientConverter;
+    private CategoryToCategoryCommand categoryConverter;
+
+    public RecipeToRecipeCommand(NoteToNoteCommand noteConverter, IngredientToIngredientCommand ingredientConverter, CategoryToCategoryCommand categoryConverter) {
+        this.noteConverter = noteConverter;
+        this.ingredientConverter = ingredientConverter;
+        this.categoryConverter = categoryConverter;
+    }
+
     @Synchronized
     @Nullable
     @Override
@@ -23,9 +26,6 @@ public class RecipeToRecipeCommand implements Converter<Recipe, RecipeCommand> {
         if (recipe == null) {
             return null;
         }
-        NoteToNoteCommand noteToNoteCommand = new NoteToNoteCommand();
-        IngredientToIngredientCommand ingredientToIngredientCommand = new IngredientToIngredientCommand();
-        CategoryToCategoryCommand categoryToCategoryCommand =  new CategoryToCategoryCommand();
         RecipeCommand recipeCommand = new RecipeCommand();
         recipeCommand.setId(recipe.getId());
         recipeCommand.setCookTime(recipe.getCookTime());
@@ -37,15 +37,32 @@ public class RecipeToRecipeCommand implements Converter<Recipe, RecipeCommand> {
         recipeCommand.setServings(recipe.getServings());
         recipeCommand.setSource(recipe.getSource());
         recipeCommand.setUrl(recipe.getUrl());
-        recipeCommand.setNote(noteToNoteCommand.convert(recipe.getNote()));
-        Set<IngredientCommand> ingredients = new HashSet<>();
-        for (Ingredient ingredient: recipe.getIngredients()) {
-            ingredients.add(ingredientToIngredientCommand.convert(ingredient));
+        recipeCommand.setNote(noteConverter.convert(recipe.getNote()));
+
+        // standard
+//        Set<IngredientCommand> ingredients = new HashSet<>();
+//        for (Ingredient ingredient: recipe.getIngredients()) {
+//            ingredients.add(ingredientConverter.convert(ingredient));
+//        }
+//        recipeCommand.setIngredients(ingredients);
+
+        // lambda
+        if (recipe.getIngredients().size() > 0) {
+            recipe.getIngredients()
+                    .forEach(_recipe -> recipeCommand.getIngredients().add(ingredientConverter.convert(_recipe)));
         }
-        recipeCommand.setIngredients(ingredients);
-        Set<CategoryCommand> categories = new HashSet<>();
-        for (Category category: recipe.getCategories()) {
-            categories.add(categoryToCategoryCommand.convert(category));
+
+        //standard
+//        Set<CategoryCommand> categories = new HashSet<>();
+//        for (Category category: recipe.getCategories()) {
+//            categories.add(categoryConverter.convert(category));
+//        }
+//        recipeCommand.setCategories(categories);
+
+        // lambda
+        if (recipe.getCategories().size() > 0) {
+            recipe.getCategories()
+                    .forEach(category -> recipeCommand.getCategories().add(categoryConverter.convert(category)));
         }
         return recipeCommand;
     }

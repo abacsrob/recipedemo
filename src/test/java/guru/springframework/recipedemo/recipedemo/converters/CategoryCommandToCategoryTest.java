@@ -9,21 +9,21 @@ import static org.junit.Assert.*;
 
 public class CategoryCommandToCategoryTest {
 
-    CategoryCommandToCategory categoryCommandToCategory;
+    CategoryCommandToCategory categoryConverter;
 
     @Before
     public void setUp() throws Exception {
-        categoryCommandToCategory = new CategoryCommandToCategory();
+        categoryConverter = new CategoryCommandToCategory();
     }
 
     @Test
     public void testNull() {
-        assertNull(categoryCommandToCategory.convert(null));
+        assertNull(categoryConverter.convert(null));
     }
 
     @Test
     public void testNotNull() {
-        assertNotNull(categoryCommandToCategory.convert(new CategoryCommand()));
+        assertNotNull(categoryConverter.convert(new CategoryCommand()));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class CategoryCommandToCategoryTest {
         categoryCommand.setId(id);
         categoryCommand.setName(name);
 
-        Category category = categoryCommandToCategory.convert(categoryCommand);
+        Category category = categoryConverter.convert(categoryCommand);
         assertNotNull(category);
         assertEquals(category.getId(), id);
         assertEquals(category.getName(), name);

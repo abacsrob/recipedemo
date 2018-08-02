@@ -9,21 +9,21 @@ import static org.junit.Assert.*;
 
 public class UnitOfMeasureToUnitOfMeasureCommandTest {
 
-    UnitOfMeasureToUnitOfMeasureCommand unitOfMeasureToUnitOfMeasureCommand;
+    UnitOfMeasureToUnitOfMeasureCommand unitOfMeasureConverter;
 
     @Before
     public void setUp() throws Exception {
-        unitOfMeasureToUnitOfMeasureCommand = new UnitOfMeasureToUnitOfMeasureCommand();
+        unitOfMeasureConverter = new UnitOfMeasureToUnitOfMeasureCommand();
     }
 
     @Test
     public void testNull() {
-        assertNull(unitOfMeasureToUnitOfMeasureCommand.convert(null));
+        assertNull(unitOfMeasureConverter.convert(null));
     }
 
     @Test
     public void testNotNull() {
-        assertNotNull(unitOfMeasureToUnitOfMeasureCommand.convert(new UnitOfMeasure()));
+        assertNotNull(unitOfMeasureConverter.convert(new UnitOfMeasure()));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class UnitOfMeasureToUnitOfMeasureCommandTest {
         unitOfMeasure.setId(id);
         unitOfMeasure.setName(name);
 
-        UnitOfMeasureCommand unitOfMeasureCommand = unitOfMeasureToUnitOfMeasureCommand.convert(unitOfMeasure);
+        UnitOfMeasureCommand unitOfMeasureCommand = unitOfMeasureConverter.convert(unitOfMeasure);
         assertNotNull(unitOfMeasureCommand);
         assertEquals(unitOfMeasureCommand.getId(), id);
         assertEquals(unitOfMeasureCommand.getName(), name);

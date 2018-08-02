@@ -9,21 +9,21 @@ import static org.junit.Assert.*;
 
 public class NoteToNoteCommandTest {
 
-    NoteToNoteCommand noteToNoteCommand;
+    NoteToNoteCommand noteConverter;
 
     @Before
     public void setUp() throws Exception {
-        noteToNoteCommand = new NoteToNoteCommand();
+        noteConverter = new NoteToNoteCommand();
     }
 
     @Test
     public void testNull() throws Exception {
-        assertNull(noteToNoteCommand.convert(null));
+        assertNull(noteConverter.convert(null));
     }
 
     @Test
     public void testNotNull() {
-        assertNotNull(noteToNoteCommand.convert(new Note()));
+        assertNotNull(noteConverter.convert(new Note()));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class NoteToNoteCommandTest {
         note.setId(id);
         note.setNotes(notes);
 
-        NoteCommand noteCommand = noteToNoteCommand.convert(note);
+        NoteCommand noteCommand = noteConverter.convert(note);
         assertNotNull(noteCommand);
         assertEquals(noteCommand.getId(), id);
         assertEquals(noteCommand.getNotes(), notes);

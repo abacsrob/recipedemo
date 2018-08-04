@@ -75,8 +75,8 @@ public class RecipeCommandToRecipeTest {
         UnitOfMeasureCommand unitOfMeasureCommand = new UnitOfMeasureCommand();
         unitOfMeasureCommand.setId(id);
         unitOfMeasureCommand.setName(description);
-        ingredientCommand.setUnitOfMeasureCommand(unitOfMeasureCommand);
-        ingredientCommand.setUnitOfMeasureCommand(unitOfMeasureCommand);
+        ingredientCommand.setUom(unitOfMeasureCommand);
+        ingredientCommand.setUom(unitOfMeasureCommand);
         ingredients.add(ingredientCommand);
         recipeCommand.setIngredients(ingredients);
 

@@ -19,7 +19,6 @@ public class CategoryCommandToCategory implements Converter<CategoryCommand, Cat
         final Category category = new Category();
         category.setId(categoryCommand.getId());
         category.setName(categoryCommand.getName());
-        category.setRecipes(categoryCommand.getRecipes());
         return category;
     }
 }

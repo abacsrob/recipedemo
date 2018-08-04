@@ -43,14 +43,14 @@ public class IngredientCommandToIngredientTest {
         UnitOfMeasureCommand unitOfMeasureCommand = new UnitOfMeasureCommand();
         unitOfMeasureCommand.setId(id);
         unitOfMeasureCommand.setName(description);
-        ingredientCommand.setUnitOfMeasureCommand(unitOfMeasureCommand);
+        ingredientCommand.setUom(unitOfMeasureCommand);
 
         Ingredient ingredient = ingredientConverter.convert(ingredientCommand);
         assertNotNull(ingredient);
         assertEquals(ingredient.getId(), id);
         assertEquals(ingredient.getDescription(), description);
         assertEquals(ingredient.getAmount(), amount);
-        UnitOfMeasure unitOfMeasure = ingredient.getUnitOfMeasure();
+        UnitOfMeasure unitOfMeasure = ingredient.getUom();
         assertEquals(unitOfMeasure.getId(), id);
         assertEquals(unitOfMeasure.getName(), description);
     }

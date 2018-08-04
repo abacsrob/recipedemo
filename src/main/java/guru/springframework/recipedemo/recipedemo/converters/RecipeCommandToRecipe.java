@@ -44,8 +44,8 @@ public class RecipeCommandToRecipe implements Converter<RecipeCommand, Recipe> {
 
         // standard
 //        Set<Category> categories = new HashSet<>();
-//        if (recipeCommand.getCategories() != null) {
-//            for (CategoryCommand categoryCommand : recipeCommand.getCategories()) {
+//        if (recipeCommand.getCategoryCommands() != null) {
+//            for (CategoryCommand categoryCommand : recipeCommand.getCategoryCommands()) {
 //                categories.add(categoryCommandToCategory.convert(categoryCommand));
 //            }
 //        }

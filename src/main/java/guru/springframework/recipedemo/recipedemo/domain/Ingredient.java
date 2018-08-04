@@ -21,7 +21,7 @@ public class Ingredient {
     @EqualsAndHashCode.Exclude
     private Recipe recipe;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure unitOfMeasure;
 
     public Ingredient() {

@@ -53,7 +53,6 @@ public class RecipeServiceImplTest {
         Mockito.verify(recipeRepository, Mockito.times(1)).findAll();
     }
 
-
     @Test
     public void testGetRecipeById() {
         Long idValue = 5L;
@@ -68,6 +67,13 @@ public class RecipeServiceImplTest {
         assertNotNull("recipe is null!", recipe);
         Mockito.verify(recipeRepository, Mockito.times(1)).findById(Mockito.anyLong());
         Mockito.verify(recipeRepository, Mockito.never()).findAll();
+    }
 
+    @Test
+    public void testDeleteRecipe() {
+        Long idToDelete = 1L;
+        recipeService.deleteRecipe(idToDelete);
+
+        Mockito.verify(recipeRepository, Mockito.times(1)).deleteById(Mockito.anyLong());
     }
 }

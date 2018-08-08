@@ -2,8 +2,10 @@ package guru.springframework.recipedemo.recipedemo.service;
 
 import guru.springframework.recipedemo.recipedemo.commands.RecipeCommand;
 import guru.springframework.recipedemo.recipedemo.domain.Recipe;
+import org.springframework.data.domain.Sort;
 
 import java.util.Set;
+import java.util.SortedSet;
 
 public interface RecipeService {
 
@@ -11,9 +13,11 @@ public interface RecipeService {
 
     Recipe findById(Long id);
 
-    public RecipeCommand saveRecipeCommand(RecipeCommand recipeCommand);
+    RecipeCommand saveRecipeCommand(RecipeCommand recipeCommand);
 
-    public RecipeCommand findRecipeCommandById(Long id);
+    RecipeCommand findRecipeCommandById(Long id);
 
-    public void deleteRecipe(Long id);
+    void deleteRecipe(Long id);
+
+    SortedSet<Recipe> getSortedRecipes(Sort sort);
 }

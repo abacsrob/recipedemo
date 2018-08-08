@@ -42,6 +42,7 @@ public class IngredientToIngredientCommandTest {
         IngredientCommand ingredientCommand = ingredientConverter.convert(ingredient);
         assertNotNull(ingredientCommand);
         assertEquals(ingredientCommand.getId(), id);
+
         assertEquals(ingredientCommand.getDescription(), description);
         assertEquals(ingredientCommand.getAmount(), amount);
     }

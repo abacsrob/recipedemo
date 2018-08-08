@@ -6,12 +6,11 @@ import guru.springframework.recipedemo.recipedemo.converters.RecipeToRecipeComma
 import guru.springframework.recipedemo.recipedemo.domain.Recipe;
 import guru.springframework.recipedemo.recipedemo.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -33,6 +32,13 @@ public class RecipeServiceImpl implements RecipeService {
         Set<Recipe> recipes = new HashSet<>();
         recipeRepository.findAll().iterator().forEachRemaining(recipes::add);
         return recipes;
+    }
+
+    @Override
+    public SortedSet<Recipe> getSortedRecipes(Sort sort) {
+        SortedSet<Recipe> sortedRecipes = new TreeSet<>(Comparator.comparing(Recipe::getDescription));
+        recipeRepository.findAll().iterator().forEachRemaining(sortedRecipes::add);
+        return sortedRecipes;
     }
 
     public Recipe findById(Long id) {
